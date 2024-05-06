@@ -7,25 +7,70 @@
 
 int main(int argc, char** argv)
 {
-    printf("fetching home folder...\n");
-
-    char* Path = strcpy(Path, gethome());
-
-    if (Path != NULL)
-        printf("sucess (0)\n");
-    else
+    if (!strcmp(argv[1], "--init"))
     {
-        printf("failure (1)\n");
+        printf("fetching home folder...\n");
+
+        char* Path = strcpy(Path, gethome());
+
+        if (chdir(Path) != 0)
+            printf("sucess (0)\n");
+        else
+        {
+            printf("failure (1)\n");
+            free(Path);
+            exit(1);
+        }
+
+        printf("preparing...");
+        Prepare();
+
+        printf("this program offers a user-friendly and intuitive web-UI\n");
+        printf("however, it requires python to be installed\n");
+        printf("this program will try installing python itself\n");
+
+        char Ui;
+
+        while (Ui != 'y' && Ui != 'Y' && Ui != 'n' && Ui != 'N')
+        {
+            printf("do you want to use the web-UI? [y/n]: ");
+            scanf("%c", &Ui);
+        }
+
+        if (Ui == 'Y' || Ui == 'y')
+        {
+            printf("checking prerequisites...\n");
+            GetPython();
+        }
+
+        else
+            printf("you can edit the config via the '--edit' flag\n");
+
         free(Path);
-        exit(1);
+        return 0;
     }
 
-    chdir(Path);
+    else if (!strcmp(argv[1], "--edit"))
+    {
+        char* Path = gethome();
 
-    printf("preparing...");
-    Prepare();
+        if (chdir(Path) != 0)
+        {
+            printf("error changing directory xd\n");
+            free(Path);
+            exit(1);
+        }
 
-    free(Path);
-    return 0;
+        free(Path);
+        return 0;
+    }
+
+    else if (!strcmp(argv[1], "--run"))
+    {
+        // todo
+    }
+
+    printf("no option selected\n");
+    return 1;
 }
 
