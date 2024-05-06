@@ -3,9 +3,13 @@ Backer is a free, open-source utility to **back**up files. (*special ty 2 superh
 
 # Tags
 > .s
+
 > .rc
+
 > .b
+
 > .a
+
 > .pa
 
 # FAQ
@@ -16,7 +20,9 @@ You can't actually download this tool directly. You must download it via the [Mi
 Just append '-v(x.x.x.y.z)' to the end of the package name. Here's how it might look:
 
 `mmgr /get backer` <-- this downloads the latest backer
+
 `mmgr /get backer-v1.0.0.s1` <-- this downloads version 1.0.0 stable 1
+
 `mmgr /get backer-v0.2.5.rc6` <-- this downloads version 0.2.5's 6th RC
 
 ...And so on!
