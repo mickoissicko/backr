@@ -30,6 +30,8 @@ void MkCfgs()
         exit(1);
     }
 
+    Cfg << "# coming soon!" << '\n';
+
     Cfg.close();
 }
 
