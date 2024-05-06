@@ -1,0 +1,14 @@
+! bakefile
+
+out: [../bin/out];
+run: [cd src/ && g++];
+src: [main.c prepare.cpp];
+
+!main{
+    >[run] -o [out] [src];
+}
+
+!serve{
+    >echo 'done!';
+}
+
