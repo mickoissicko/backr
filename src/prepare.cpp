@@ -1,18 +1,52 @@
 #include <filesystem>
 #include <iostream>
+#include <unistd.h>
+#include <cstdlib>
+#include <fstream>
 
-namespace fs = std::filesystem; // yes, i finally used it
+// yes, im finally shortening stuff
+
+using namespace std;
+
+namespace Fs = std::filesystem; 
+typedef std::ifstream Read; 
+typedef std::ofstream Write;
+
+void MkCfgs()
+{
+    int Ui;
+
+    if (chdir("backer") != 0)
+    {
+        cerr << "error noob" << '\n';
+        exit(1);
+    }
+
+    Write Cfg("prefs.yml");
+
+    if (!Cfg.is_open())
+    {
+        cerr << "couldn't write file" << '\n';
+        exit(1);
+    }
+
+    Cfg.close();
+}
 
 void Prepare()
 {
-    std::cout << "initialising folders..." << '\n';
+    cout << "initialising folders..." << '\n';
 
-    if (!fs::exists(".mix"))
-        fs::create_directories(".mix");
+    if (!Fs::exists(".mix"))
+        Fs::create_directories(".mix");
 
-    std::cout << "making program folder..." << '\n';
+    cout << "making program folder..." << '\n';
 
-    if (!fs::exists("backer"))
-        fs::create_directories("backer");
+    if (!Fs::exists("backer"))
+        Fs::create_directories("backer");
+
+    cout << "making config..." << '\n';
+
+    MkCfgs();
 }
 
