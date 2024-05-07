@@ -11,16 +11,12 @@ int Installer(char** flag)
     {
         printf("fetching home folder...\n");
 
-        char* Path = strcpy(Path, gethome());
+        char* Path = gethome();
 
         if (chdir(Path) != 0)
-            printf("sucess (0)\n");
-        else
-        {
-            printf("failure (1)\n");
-            free(Path);
+            printf("failure (1)\n"),
+            free(Path),
             exit(1);
-        }
 
         printf("preparing...");
         Prepare();
