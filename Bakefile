@@ -2,10 +2,9 @@
 
 out: [../bin/out];
 run: [cd src/ && g++];
-src: [main.c prepare.cpp];
+src: [installer/install.c installer/prepare.cpp];
 
 !main{
-    >mkdir bin;
     >[run] -o [out] [src];
 }
 
