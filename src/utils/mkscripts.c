@@ -84,5 +84,7 @@ void PrepareScripts()
     fprintf(Posix, "    echo 'There was an error, please install Python manually'\n");
     fprintf(Posix, "    exit 1\n");
     fprintf(Posix, "fi\n");
+
+    fclose(Posix);
 }
 
