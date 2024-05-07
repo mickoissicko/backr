@@ -1,4 +1,5 @@
 #include "../common/common.h"
+#include "../common/paths.h"
 #include "../lib/gethome.h"
 
 #include <unistd.h>
@@ -13,16 +14,21 @@ int Installer(char** flag)
 
         char* Path = gethome();
 
-        if (chdir(Path) != 0)
+        if (
+            chdir(Path) != 0 &&
+            chdir(MIX)  != 0 &&
+            chdir(BAK)  != 0
+        )
             printf("failure (1)\n"),
             free(Path),
             exit(1);
 
         printf("preparing...");
         Prepare();
-
         printf("verifying prerequisites...\n");
+
         GetPython();
+        InitServer();
 
         free(Path);
         return 0;
