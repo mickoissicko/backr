@@ -1,10 +1,9 @@
 #include "../common/common.h"
 
 #include <string.h>
-#include <stdlib.h>
 #include <stdio.h>
+#include <strings.h>
 
-#define ARG_LEN 256
 #define MAX_LEN 1024
 
 // --init
@@ -19,37 +18,24 @@ void Loader()
     char Ui[MAX_LEN];
 
     printf("well... type smth here so I can take you there:\n");
+    printf("availble commands:\nedit\ninit\n");
 
     while (
-        !!strcasecmp(Ui, "edit") &&
-        !!strcasecmp(Ui, "init")
+        strcasecmp(Ui, "edit") &&
+        strcasecmp(Ui, "init")
     ){
-        printf(">");
+        printf("> "),
         scanf("%s", Ui);
-
-        if (
-            !!strcasecmp(Ui, "edit") &&
-            !!strcasecmp(Ui, "init")
-        ){
-            printf("buddy, i think there was a typo\n");
-            printf("let me help you to a list of commands\n");
-
-            printf("edit\ninit\n");
-        }
     }
 
-    // https://i.ibb.co/rtYH1k6/image-psd.jpg
-    // :skull:
-
-    char* ArgBuf = (char*)malloc(ARG_LEN * sizeof(char));
-
-    if (strcasecmp(Ui, "edit"))
+    if (!strcasecmp(Ui, "edit"))
         EditMenu();
 
-    else if (strcasecmp(Ui, "init"))
+    else if (!strcasecmp(Ui, "init"))
     {
-        strcpy(ArgBuf, "--init");
-        Installer(&ArgBuf);
+        char* Flag[] = {NULL, "--init"};
+
+        Installer(Flag);
     }
 }
 
