@@ -12,7 +12,7 @@ int main(int argc, char** argv)
     else
         Loader();
 
-    if (!strcmp(argv[1], "--edit"))
+    if (argc >= 2 && !strcmp(argv[1], "--edit"))
         EditMenu();
 
     return 0;
