@@ -41,7 +41,7 @@ void Loader()
     // https://i.ibb.co/rtYH1k6/image-psd.jpg
     // :skull:
 
-    char* ArgBuf = malloc(ARG_LEN * sizeof(char));
+    char* ArgBuf = (char*)malloc(ARG_LEN * sizeof(char));
 
     if (strcasecmp(Ui, "edit"))
         EditMenu();
