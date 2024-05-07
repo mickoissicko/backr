@@ -5,6 +5,7 @@ run: [cd src/ && g++];
 src: [main.c prepare.cpp];
 
 !main{
+    >mkdir bin;
     >[run] -o [out] [src];
 }
 
