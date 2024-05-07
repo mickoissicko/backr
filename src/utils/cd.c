@@ -20,7 +20,7 @@ char* CDToBackerFolder()
         exit(1);
     }
 
-    char* FinalPath = malloc(MAX_PATH_LEN * sizeof(char));
+    char* FinalPath = (char*)malloc(MAX_PATH_LEN * sizeof(char));
     snprintf(FinalPath, MAX_PATH_LEN, "%s/%s/%s", Path, MIX, BAK);
 
     return FinalPath;
