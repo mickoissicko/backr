@@ -18,7 +18,7 @@ void Loader()
 
     char Ui[MAX_LEN];
 
-    printf("well... type smth here so I can take you there: ");
+    printf("well... type smth here so I can take you there:\n");
 
     while (
         !!strcasecmp(Ui, "edit") &&
