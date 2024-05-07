@@ -7,7 +7,7 @@ int main(int argc, char** argv)
 {
     printf("initialising...\n");
 
-    if (argv != NULL)
+    if (argv[1] != NULL)
         Installer(argv);
     else
         Loader();
