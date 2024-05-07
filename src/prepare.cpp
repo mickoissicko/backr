@@ -8,7 +8,7 @@
 
 using namespace std;
 
-namespace Fs = std::filesystem; 
+namespace Fs = std::filesystem;
 typedef std::ifstream Read; 
 typedef std::ofstream Write;
 
