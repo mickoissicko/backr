@@ -1,5 +1,5 @@
-#include "../common/common.h"
-#include "../lib/gethome.h"
+#include "../../common/common.h"
+#include "../../lib/gethome.h"
 
 #include <unistd.h>
 #include <string.h>
