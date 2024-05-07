@@ -65,6 +65,7 @@ void EditMenu()
     // Port
     printf("Now editing port number...\n");
 
+    c_Ui = '\0';
     while (
         c_Ui != 'y' &&
         c_Ui != 'Y' &&
@@ -72,7 +73,7 @@ void EditMenu()
         c_Ui != 'n'
     ){
         printf("Use default value? [y/n]: "),
-        scanf("%c", &c_Ui);
+        scanf(" %c", &c_Ui);
     }
 
     if (c_Ui == 'y' || c_Ui == 'Y')
@@ -81,12 +82,13 @@ void EditMenu()
     else
     {
         printf("New PORT: "),
-        scanf("%s", Port);
+        scanf(" %s", Port);
     }
 
     // Time/clock
     printf("Editing time (save-intervals), in seconds\n");
 
+    c_Ui = '\0';
     while (
         c_Ui != 'y' &&
         c_Ui != 'Y' &&
@@ -94,7 +96,7 @@ void EditMenu()
         c_Ui != 'n'
     ){
         printf("Use default value? [y/n]: "),
-        scanf("%c", &c_Ui);
+        scanf(" %c", &c_Ui);
     }
 
     if (c_Ui == 'y' || c_Ui == 'Y')
@@ -106,7 +108,7 @@ void EditMenu()
         printf("Just type in a positive integer value\n");
 
         printf("New Time: "),
-        scanf("%s", Time);
+        scanf(" %s", Time);
     }
 
     fprintf(Cfg, "ADDR: %s\n", Addr);
