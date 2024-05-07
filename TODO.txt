@@ -2,5 +2,5 @@ finish server
 add auto-updater
 script to install wget
 add auto-backup functions
-FIX THE FUCKING PLETHORA OF SEGMENTATION VIOLATION
+FIX THE FUCKING PLETHORA OF SEGMENTATION VIOLATIONS
 
