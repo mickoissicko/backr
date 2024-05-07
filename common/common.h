@@ -5,6 +5,7 @@
 int Installer(char** flag);
 char* CDToBackerFolder();
 void PrepareScripts();
+void InitServer();
 void GetPython();
 void EditMenu();
 void Prepare();
