@@ -98,7 +98,7 @@ void EditMenu()
     }
 
     if (c_Ui == 'y' || c_Ui == 'Y')
-        strcpy(Addr, "600");
+        strcpy(Time, "600");
 
     else
     {
@@ -112,7 +112,6 @@ void EditMenu()
     fprintf(Cfg, "ADDR: %s\n", Addr);
     fprintf(Cfg, "PORT: %s\n", Port);
     fprintf(Cfg, "TIME: %s\n", Time);
-
 
     fclose(Cfg);
 }
