@@ -6,14 +6,9 @@
 
 int main()
 {
-    printf("finding folders...\n");
+    PrepareScripts();
 
-    char* Path = CDToBackerFolder();
-
-    printf("%s", Path);
-    chdir(Path);
-
-
-    exit(0);
+    system("ls");
+    system("touch abc.d");
 }
 
