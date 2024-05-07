@@ -5,9 +5,9 @@
 #include <string.h>
 #include <stdio.h>
 
-int Installer(int argc, char** argv)
+int Installer(char** flag)
 {
-    if (!strcmp(argv[1], "--init"))
+    if (!strcmp(flag[1], "--init"))
     {
         printf("fetching home folder...\n");
 
@@ -50,7 +50,7 @@ int Installer(int argc, char** argv)
         return 0;
     }
 
-    else if (!strcmp(argv[1], "--edit"))
+    else if (!strcmp(flag[1], "--edit"))
     {
         char* Path = gethome();
 
@@ -63,11 +63,6 @@ int Installer(int argc, char** argv)
 
         free(Path);
         return 0;
-    }
-
-    else if (!strcmp(argv[1], "--run"))
-    {
-        // todo
     }
 
     printf("no option selected\n");
