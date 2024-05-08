@@ -7,11 +7,89 @@
 
 #define BUF 4096
 
-int GetTime()
+int GetStdTime()
+{
+    int Interval;
+    char* Path = CDToBackerFolder();
+
+    chdir(Path);
+
+    FILE* Cfg;
+    Cfg = fopen("cfg.yml", "r");
+
+    if (Cfg == NULL)
+    {
+        printf("Run config editor first!\n");
+        exit(1);
+    }
+
+    char Ln[BUF];
+
+    fgets(Ln, BUF, Cfg); // read line 1
+    fgets(Ln, BUF, Cfg); // read line 2
+    fgets(Ln, BUF, Cfg); // read line 3
+
+    char* Delim = "STOP_AFTER: ";
+
+    if (strstr(Ln, Delim) == Ln)
+    {
+        if (sscanf(Ln + strlen(Delim), "%d", &Interval) != 1)
+        {
+            printf("either off or bad format\n");
+            exit(1);
+        }
+    }
+
+    fclose(Cfg);
+
+    return Interval;
+}
+
+int GetEndTime()
+{
+    int Interval;
+    char* Path = CDToBackerFolder();
+
+    chdir(Path);
+
+    FILE* Cfg;
+    Cfg = fopen("cfg.yml", "r");
+
+    if (Cfg == NULL)
+    {
+        printf("Run config editor first!\n");
+        exit(1);
+    }
+
+    char Ln[BUF];
+
+    fgets(Ln, BUF, Cfg); // read line 1
+    fgets(Ln, BUF, Cfg); // read line 2
+    fgets(Ln, BUF, Cfg); // read line 3
+    fgets(Ln, BUF, Cfg); // read line 4
+    fgets(Ln, BUF, Cfg); // read line 5
+
+    char* Delim = "STOP_AFTER: ";
+
+    if (strstr(Ln, Delim) == Ln)
+    {
+        if (sscanf(Ln + strlen(Delim), "%d", &Interval) != 1)
+        {
+            printf("either off or bad format\n");
+            exit(1);
+        }
+    }
+
+    fclose(Cfg);
+
+    return Interval;
+}
+
+int GetDelTime()
 {
     char* Path = CDToBackerFolder();
     chdir(Path);
-    
+
     FILE* Cfg;
     Cfg = fopen("cfg.yml", "r");
 
