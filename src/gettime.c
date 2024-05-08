@@ -7,7 +7,7 @@
 
 #define BUF 4096
 
-int Clock()
+int GetTime()
 {
     char* Path = CDToBackerFolder();
     chdir(Path);
