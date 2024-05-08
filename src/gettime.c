@@ -34,10 +34,7 @@ int GetStdTime()
     if (strstr(Ln, Delim) == Ln)
     {
         if (sscanf(Ln + strlen(Delim), "%d", &Interval) != 1)
-        {
-            printf("either off or bad format\n");
-            exit(1);
-        }
+            return 0;
     }
 
     fclose(Cfg);
@@ -74,10 +71,7 @@ int GetEndTime()
     if (strstr(Ln, Delim) == Ln)
     {
         if (sscanf(Ln + strlen(Delim), "%d", &Interval) != 1)
-        {
-            printf("either off or bad format\n");
-            exit(1);
-        }
+            return 0;
     }
 
     fclose(Cfg);
@@ -115,10 +109,7 @@ int GetDelTime()
     if (strstr(Ln, Delim) == Ln)
     {
         if (sscanf(Ln + strlen(Delim), "%d", &Interval) != 1)
-        {
-            printf("either off or bad format\n");
-            exit(1);
-        }
+            return 0;
     }
 
     fclose(Cfg);
