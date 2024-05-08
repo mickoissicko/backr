@@ -1,5 +1,5 @@
 finish server
 add auto-updater
 script to install wget
-add auto-backup functions
+implement clock
 
