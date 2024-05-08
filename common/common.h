@@ -8,7 +8,7 @@ void PrepareScripts();
 void InitServer();
 void GetPython();
 void EditMenu();
+void MakeSave();
 void Prepare();
-void Runner();
 void Loader();
 
