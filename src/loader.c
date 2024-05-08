@@ -1,13 +1,10 @@
 #include "../common/common.h"
 
 #include <string.h>
+#include <stdlib.h>
 #include <stdio.h>
-#include <strings.h>
 
 #define MAX_LEN 1024
-
-// --init
-// --edit
 
 void Loader()
 {
@@ -18,7 +15,7 @@ void Loader()
     char Ui[MAX_LEN];
 
     printf("well... type smth here so I can take you there:\n");
-    printf("availble commands:\nedit\ninit\n");
+    printf("availble commands:\nedit\ninit\nsave\n");
 
     while (
         strcasecmp(Ui, "edit") &&
@@ -31,11 +28,16 @@ void Loader()
     if (!strcasecmp(Ui, "edit"))
         EditMenu();
 
+    else if (!strcasecmp(Ui, "save"))
+        MakeSave();
+
     else if (!strcasecmp(Ui, "init"))
     {
         char* Flag[] = {NULL, "--init"};
 
         Installer(Flag);
     }
+
+    exit(0);
 }
 
