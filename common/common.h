@@ -13,5 +13,7 @@ void Prepare();
 void Loader();
 
 int Installer(char** flag);
-int GetTime();
+int GetStdTime();
+int GetDelTime();
+int GetEndTime();
 
