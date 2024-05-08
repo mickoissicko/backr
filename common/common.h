@@ -11,6 +11,7 @@ void EditMenu();
 void MakeSave();
 void Prepare();
 void Loader();
+void Clock();
 
 int Installer(char** flag);
 int GetStdTime();
