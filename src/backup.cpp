@@ -15,52 +15,47 @@ namespace Fs = std::filesystem;
 
 const std::string Saves = ".saves";
 
-void MakeDirectSave()
+void DirectSaver()
 {
     std::string Cwd = Fs::current_path();
     char* Path = CDToBackerFolder();
 
     chdir(Path);
 
-    std::ifstream Savefile("saves.txt");
+    std::ifstream Name("saves.txt");
 
-    if (!Savefile.is_open())
+    if (!Name.is_open())
     {
-        std::cout << "please configure first" << '\n';
-        std::cout << "you may also run with prompt" << '\n';
-
+        std::cerr << "error reading file" << '\n';
+        std::cout << "make sure to enter name first" << '\n';
         exit(1);
     }
 
-    std::string Folder;
-    Savefile >> Folder;
-    Savefile.close();
+    std::string Ui;
+
+    Name >> Ui;
+    Name.close();
 
     chdir(Cwd.c_str());
-
-    std::cout << "searching for folder in current path..." << '\n';
 
     if (!Fs::exists(Saves))
         Fs::create_directories(Saves);
 
     chdir(Saves.c_str());
 
-    if (!Fs::exists(Folder))
-        Fs::create_directories(Folder);
+    if (!Fs::exists(Ui))
+        Fs::create_directories(Ui);
 
     // step back
     chdir("..");
 
     char BackupFolder[BUF];
 
-    snprintf(
-        BackupFolder, BUF,
-        "%s/%s", Saves.c_str(), Folder.c_str()
-    );
+    snprintf(BackupFolder, BUF, "%s/%s", Saves.c_str(), Ui.c_str());
 
-    Fs::copy(Folder, BackupFolder, Fs::copy_options::recursive);
+    Fs::copy(Ui, BackupFolder, Fs::copy_options::recursive);
 
-    RenameFolder(Saves, Folder);
+    RenameFolder(Saves, Ui);   
 }
 
 void MakeSave()
@@ -79,6 +74,20 @@ void MakeSave()
     }
 
     std::string Ui;
+    char Ui_2;
+
+    while (
+        Ui_2 != 'y' &&
+        Ui_2 != 'Y' &&
+        Ui_2 != 'N' &&
+        Ui_2 != 'n'
+    ){
+        std::cout << "Use previous folder? [y/n]: ";
+        std::cin >> Ui_2;
+    }
+
+    if (Ui_2 == 'y' || Ui_2 == 'Y')
+        DirectSaver();
 
     std::cout << "Folder to backup: ",
     std::cin >> Ui;
