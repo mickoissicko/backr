@@ -30,6 +30,7 @@ void EditMenu()
                // but im not bothered lol
 
     char DeleteTime[MAX_VAL];
+    char EndTime[MAX_VAL];
     char Addr[MAX_VAL];
     char Port[MAX_VAL];
     char Time[MAX_VAL];
@@ -39,6 +40,7 @@ void EditMenu()
     printf("PORT: 80\n");
     printf("TIME: 600\n");
     printf("DEL_TIME: Off\n");
+    printf("STOP_AFTER: Off\n");
     printf("***via v0.1.0.a1***\n");
 
     // Addr
@@ -113,6 +115,9 @@ void EditMenu()
         scanf(" %s", Time);
     }
 
+    // Deletion intervals
+    printf("Editing deletion intervals, in seconds\n");
+
     c_Ui = '\0';
     while (
         c_Ui != 'y' &&
@@ -136,10 +141,37 @@ void EditMenu()
         scanf(" %s", DeleteTime);
     }
 
+    // Stop after interval
+    printf("Editing stop interval, in seconds\n");
+
+    c_Ui = '\0';
+    while (
+        c_Ui != 'y' &&
+        c_Ui != 'Y' &&
+        c_Ui != 'N' &&
+        c_Ui != 'n'
+    ){
+        printf("Use default value? [y/n]: "),
+        scanf(" %c", &c_Ui);
+    }
+
+    if (c_Ui == 'y' || c_Ui == 'Y')
+        strcpy(EndTime, "Off");
+
+    else
+    {
+        printf("Don't append unit\n");
+        printf("Just type in a positive integer value\n");
+
+        printf("New EndTime: "),
+        scanf(" %s", EndTime);
+    }
+
     fprintf(Cfg, "ADDR: %s\n", Addr);
     fprintf(Cfg, "PORT: %s\n", Port);
     fprintf(Cfg, "TIME: %s\n", Time);
     fprintf(Cfg, "DEL_TIME: %s\n", DeleteTime);
+    fprintf(Cfg, "STOP_AFTER: %s\n", EndTime);
 
     fclose(Cfg);
 }
