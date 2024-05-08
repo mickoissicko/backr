@@ -1,3 +1,5 @@
 ADDR: 127.0.0.1
 PORT: 80
 TIME: 600
+DEL_TIME: Off
+
