@@ -29,7 +29,7 @@ int GetStdTime()
     fgets(Ln, BUF, Cfg); // read line 2
     fgets(Ln, BUF, Cfg); // read line 3
 
-    char* Delim = "STOP_AFTER: ";
+    char* Delim = "TIME: ";
 
     if (strstr(Ln, Delim) == Ln)
     {
