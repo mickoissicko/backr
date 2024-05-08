@@ -29,6 +29,7 @@ void EditMenu()
     int Ui;    // to be consistent, this should be i_Ui,
                // but im not bothered lol
 
+    char DeleteTime[MAX_VAL];
     char Addr[MAX_VAL];
     char Port[MAX_VAL];
     char Time[MAX_VAL];
@@ -37,6 +38,7 @@ void EditMenu()
     printf("ADDR: 127.0.0.1\n");
     printf("PORT: 80\n");
     printf("TIME: 600\n");
+    printf("DEL_TIME: Off\n");
     printf("***via v0.1.0.a1***\n");
 
     // Addr
@@ -111,9 +113,33 @@ void EditMenu()
         scanf(" %s", Time);
     }
 
+    c_Ui = '\0';
+    while (
+        c_Ui != 'y' &&
+        c_Ui != 'Y' &&
+        c_Ui != 'N' &&
+        c_Ui != 'n'
+    ){
+        printf("Use default value? [y/n]: "),
+        scanf(" %c", &c_Ui);
+    }
+
+    if (c_Ui == 'y' || c_Ui == 'Y')
+        strcpy(DeleteTime, "Off");
+
+    else
+    {
+        printf("Don't append unit\n");
+        printf("Just type in a positive integer value\n");
+
+        printf("New DelTime: "),
+        scanf(" %s", DeleteTime);
+    }
+
     fprintf(Cfg, "ADDR: %s\n", Addr);
     fprintf(Cfg, "PORT: %s\n", Port);
     fprintf(Cfg, "TIME: %s\n", Time);
+    fprintf(Cfg, "DEL_TIME: %s\n", DeleteTime);
 
     fclose(Cfg);
 }
