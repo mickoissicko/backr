@@ -2,7 +2,7 @@
 
 out: [../bin/out];
 run: [cd src/ && g++];
-src: [serverinit.c tools/editor.c install.c loader.c main.c prepare.cpp utils/cd.c utils/getpy.c utils/mkscripts.c];
+src: [renamefolders.cpp counter.cpp serverinit.c tools/editor.c install.c loader.c main.c prepare.cpp utils/cd.c utils/getpy.c utils/mkscripts.c];
 
 !main{
     >[run] -o [out] [src];
