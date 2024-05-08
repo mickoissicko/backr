@@ -5,6 +5,8 @@
 char* CDToBackerFolder();
 
 void PrepareScripts();
+void RemoveOldest();
+void DirectSaver();
 void InitServer();
 void GetPython();
 void EditMenu();
