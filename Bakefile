@@ -2,7 +2,7 @@
 
 out: [../bin/out];
 run: [cd src/ && g++];
-src: [backup.cpp gettime.c clock.c rename.cpp counter.cpp serverinit.c tools/editor.c install.c loader.c main.c prepare.cpp utils/cd.c utils/getpy.c utils/mkscripts.c];
+src: [remove.cpp backup.cpp gettime.c clock.c rename.cpp counter.cpp serverinit.c tools/editor.c install.c loader.c main.c prepare.cpp utils/cd.c utils/getpy.c utils/mkscripts.c];
 
 !main{
     >[run] -o [out] [src];
