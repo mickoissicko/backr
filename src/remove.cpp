@@ -28,7 +28,7 @@ void RemoveOldest()
         int Result = Count - 1;
 
     else
-        std::cout << "to early to delete at the moment" << '\n';
+        std::cout << "too early to delete at the moment" << '\n';
 
     std::string FilePath = CDToBackerFolder();
     chdir(FilePath.c_str());
@@ -55,4 +55,5 @@ void RemoveOldest()
 
     chdir("..");
 }
+
 
