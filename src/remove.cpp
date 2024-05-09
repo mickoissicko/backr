@@ -54,6 +54,8 @@ void RemoveOldest()
         int Num;
         Num = Count - 1;
 
+        std::cout << Num << '\n';
+
         std::string NewFolderName = FolderName + "-" + std::to_string(Num);
         std::filesystem::remove_all(NewFolderName);
     }
