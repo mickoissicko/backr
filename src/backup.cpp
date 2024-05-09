@@ -17,7 +17,9 @@ const std::string Saves = ".saves";
 
 void DirectSaver()
 {
-    std::string Cwd = Fs::current_path();
+    char Cwd[MAX_LEN];
+    getcwd(Cwd, sizeof(Cwd));
+
     char* Path = CDToBackerFolder();
 
     chdir(Path);
@@ -34,10 +36,12 @@ void DirectSaver()
 
     std::string Ui;
 
+    Name.seekg(0);
+
     Name >> Ui;
     Name.close();
 
-    chdir(Cwd.c_str());
+    chdir(Cwd);
 
     if (!Fs::exists(Saves))
         Fs::create_directories(Saves);
@@ -61,20 +65,6 @@ void DirectSaver()
 
 void MakeSave()
 {
-    std::string Cwd = Fs::current_path();
-    char* Path = CDToBackerFolder();
-
-    chdir(Path);
-
-    std::ofstream Name("saves.txt");
-
-    if (!Name.is_open())
-    {
-        std::cerr << "error writing file" << '\n';
-        exit(1);
-    }
-
-    std::string Ui;
     char Ui_2;
 
     while (
@@ -90,31 +80,49 @@ void MakeSave()
     if (Ui_2 == 'y' || Ui_2 == 'Y')
         DirectSaver();
 
-    std::cout << "Folder to backup: ",
-    std::cin >> Ui;
+    if (Ui_2 == 'n' || Ui_2 == 'N')
+    {
+        std::string Cwd = Fs::current_path();
+        char* Path = CDToBackerFolder();
 
-    Name << Ui << '\n';
-    Name.close();
+        chdir(Path);
 
-    chdir(Cwd.c_str());
+        std::string Ui;
 
-    if (!Fs::exists(Saves))
-        Fs::create_directories(Saves);
+        std::ofstream Name("saves.txt");
 
-    chdir(Saves.c_str());
+        if (!Name.is_open())
+        {
+            std::cerr << "error writing file" << '\n';
+            exit(1);
+        }
 
-    if (!Fs::exists(Ui))
-        Fs::create_directories(Ui);
+        std::cout << "Folder to backup: ",
+        std::cin >> Ui;
 
-    // step back
-    chdir("..");
+        Name << Ui << '\n';
+        Name.close();
 
-    char BackupFolder[BUF];
+        chdir(Cwd.c_str());
 
-    snprintf(BackupFolder, BUF, "%s/%s", Saves.c_str(), Ui.c_str());
+        if (!Fs::exists(Saves))
+            Fs::create_directories(Saves);
 
-    Fs::copy(Ui, BackupFolder, Fs::copy_options::recursive);
+        chdir(Saves.c_str());
 
-    RenameFolder(Saves, Ui);
+        if (!Fs::exists(Ui))
+            Fs::create_directories(Ui);
+
+        // step back
+        chdir("..");
+
+        char BackupFolder[BUF];
+
+        snprintf(BackupFolder, BUF, "%s/%s", Saves.c_str(), Ui.c_str());
+
+        Fs::copy(Ui, BackupFolder, Fs::copy_options::recursive);
+
+        RenameFolder(Saves, Ui);
+    }
 }
 
