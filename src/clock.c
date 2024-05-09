@@ -1,27 +1,24 @@
 #include "../common/common.h"
 #include "../lib/sleep.h"
 
-#include <stdio.h>
-
 void Clock()
 {
+    int CurrentTime = 0;
+
     int Std = GetStdTime();
     int Del = GetDelTime();
     int End = GetEndTime();
 
-    MakeSave();
-
-    int Index;
-
-    while (Index != End)
+    while (CurrentTime != End)
     {
-        Hlt(Std);
-        DirectSaver();
+        if (CurrentTime == Std)
+            DirectSaver();
 
-        if (Index == Del)
+        if (CurrentTime == Del)
             RemoveOldest();
 
-        Index++;
+        Hlt(1);
+        CurrentTime++;
     }
 }
 
