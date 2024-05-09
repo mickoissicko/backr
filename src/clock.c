@@ -26,9 +26,9 @@ void Clock()
         int Std = GetStdTime();
         int Del = GetDelTime();
 
-        printf("time left: %d\n", End);
-        printf("current time: %d\n", Current);
-        printf("updates every: %d\n", Std);
+        //printf("time left: %d\n", End);
+        //printf("current time: %d\n", Current);
+        //printf("updates every: %d\n", Std);
 
         chdir(Cwd);
 
