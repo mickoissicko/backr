@@ -1,5 +1,21 @@
-finish server
-add auto-updater
-script to install wget
-allow user to specify path of .saves/ directory
+note: 1 = highest priority
+
+1. mick && superharmony:
+    script to install wget
+
+2. superharmony:
+    make python server
+
+3. superharmony:
+    make interactive website
+
+4. superharmony: 
+    read from YAML cfg (path will be provided by C code),
+    and host on specified addr, port
+
+5. mick:
+    add auto-updater
+
+6. mick:
+    allow user to specify path of .saves/ directory
 
