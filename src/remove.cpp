@@ -8,36 +8,24 @@
 #include <cstdlib>
 #include <fstream>
 
+#define MAX_LEN 8192
+
 void RemoveOldest()
 {
-    int Count = {0};
+    int Count = 0;
 
-    std::ifstream Manifest(".saves/MANIFEST");
+    char Cwd[MAX_LEN];
+    getcwd(Cwd, sizeof(Cwd));
 
-    if (!Manifest.is_open())
-    {
-        std::cerr << "unable to read MANIFEST at '.saves/MANIFEST'" << '\n';
-        std::cout << "maybe deletion time is higher than std/end time?" << '\n';
-    }
-
-    Manifest >> Count;
-
-    Manifest.close();
-
-    if (Count > 2)
-        int Result = Count - 1;
-
-    else
-        std::cout << "too early to delete at the moment" << '\n';
-
-    std::string FilePath = CDToBackerFolder();
-    chdir(FilePath.c_str());
+    char* Path = CDToBackerFolder();
+    chdir(Path);
 
     std::ifstream Saves("saves.txt");
 
     if (!Saves.is_open())
     {
-        std::cerr << "run with --save first" << '\n';
+        std::cerr << "error reading" << '\n';
+        std::cout << "run --save first" << '\n';
         exit(1);
     }
 
@@ -46,12 +34,29 @@ void RemoveOldest()
 
     Saves.close();
 
-    std::string StrCount = std::to_string(Count);
-    std::string FormattedFolderName = FolderName + "-" + StrCount;
-
+    chdir(Cwd);
     chdir(".saves");
 
-    std::filesystem::remove_all(FormattedFolderName);
+    std::ifstream Manifest("MANIFEST");
+
+    if (!Manifest.is_open())
+    {
+        std::cerr << "error reading" << '\n';
+        std::cout << "run --save first" << '\n';
+        exit(1);
+    }
+
+    Manifest >> Count;
+    Manifest.close();
+
+    if (Count > 2)
+    {
+        int Num;
+        Num = Count - 1;
+    }
+
+    std::string NewFolderName = FolderName + "-" + std::to_string(Count);
+    std::filesystem::remove_all(NewFolderName);
 
     chdir("..");
 }
