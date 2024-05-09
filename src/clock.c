@@ -1,24 +1,49 @@
 #include "../common/common.h"
 #include "../lib/sleep.h"
 
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX_SIZ 8192
+#define LS system("ls");
+
 void Clock()
 {
-    int CurrentTime = 0;
+    char Cwd[MAX_SIZ];
 
-    int Std = GetStdTime();
-    int Del = GetDelTime();
+    if (getcwd(Cwd, MAX_SIZ) == NULL)
+    {
+        perror("error\n");
+        exit(1);
+    }
+
+    int Current = 0;
     int End = GetEndTime();
 
-    while (CurrentTime != End)
+    while (End != 0)
     {
-        if (CurrentTime == Std)
+        int Std = GetStdTime();
+        int Del = GetDelTime();
+
+        printf("time left: %d\n", End);
+        printf("current time: %d\n", Current);
+        printf("updates every: %d\n", Std);
+
+        chdir(Cwd);
+
+        if (Current % Std == 0)
             DirectSaver();
 
-        if (CurrentTime == Del)
+        if (Current % Del == 0)
             RemoveOldest();
 
+        chdir(Cwd);
+
         Hlt(1);
-        CurrentTime++;
+        End--;
+        Current++;
     }
 }
+
 
