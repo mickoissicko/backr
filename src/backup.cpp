@@ -60,7 +60,7 @@ void DirectSaver()
 
     Fs::copy(Ui, BackupFolder, Fs::copy_options::recursive);
 
-    RenameFolder(Saves, Ui);   
+    RenameFolder(Saves, Ui);
 }
 
 void MakeSave()
