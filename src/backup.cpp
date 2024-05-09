@@ -28,6 +28,7 @@ void DirectSaver()
     {
         std::cerr << "error reading file" << '\n';
         std::cout << "make sure to enter name first" << '\n';
+        std::cout << "run with '--save'" << '\n';
         exit(1);
     }
 
