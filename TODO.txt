@@ -1,6 +1,4 @@
 finish server
 add auto-updater
 script to install wget
-implement removeoldest
-testing
 
