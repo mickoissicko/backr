@@ -22,7 +22,7 @@ void MkCfgs()
         exit(1);
     }
 
-    Write Cfg("prefs.yml");
+    Write Cfg("cfg.yml");
 
     if (!Cfg.is_open())
     {
@@ -30,7 +30,9 @@ void MkCfgs()
         exit(1);
     }
 
-    Cfg << "# coming soon!" << '\n';
+    Cfg << "# rerun program with --edit" << '\n'
+        << "# this will open the edit menu" << '\n'
+        << "# then you can personalise and customise!" << '\n';
 
     Cfg.close();
 }
