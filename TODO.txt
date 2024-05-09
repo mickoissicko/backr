@@ -1,4 +1,5 @@
 finish server
 add auto-updater
 script to install wget
+allow user to specify path of .saves/ directory
 
