@@ -1,7 +1,6 @@
 finish server
 add auto-updater
 script to install wget
-finish clock
 implement removeoldest
 testing
 
