@@ -3,6 +3,7 @@
 #endif
 
 #include <string>
-void Counter(std::string WorkingPath);
+
 void RenameFolder(std::string WorkingPath, std::string FolderName);
+void Counter(std::string WorkingPath);
 
