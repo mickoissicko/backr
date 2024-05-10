@@ -9,5 +9,5 @@ const static char SERVER_HTML_FILE_URL[] =
     "https://raw.githubusercontent.com/mickoissicko/backr/main/src/server/index.html";
 
 const static char SERVER_VERSION_FILE[] =
-    "https://raw.githubusercontent.com/mickoissicko/backr/main/src/server/version.info";
+    "https://raw.githubusercontent.com/mickoissicko/backr/main/version.info";
 
