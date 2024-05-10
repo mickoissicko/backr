@@ -10,9 +10,6 @@ note: 1 = highest priority
     read from YAML cfg (path will be provided by C code),
     and host on specified addr, port
 
-4. mick: (70%)
-    add auto-updater
-
-5. mick: (0%)
+4. mick: (0%)
     allow user to specify path of .saves/ directory
 
