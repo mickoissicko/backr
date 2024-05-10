@@ -18,7 +18,10 @@ void DownloadScripts()
 
     Get("server.py", SERVER_FILE_URL);
     Get("index.html", SERVER_HTML_FILE_URL);
+    Get("version.info", SERVER_VERSION_FILE);
 
     chdir(Cwd);
+
+    CheckVersions();
 }
 
