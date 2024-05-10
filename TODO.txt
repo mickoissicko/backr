@@ -1,15 +1,18 @@
 note: 1 = highest priority
 
-1. superharmony: (0%)
-    make python server
+1. mick: (0%)
+    testing
 
 2. superharmony: (0%)
+    make python server
+
+3. superharmony: (0%)
     make interactive website
 
-3. superharmony: (0%) 
+4. superharmony: (0%) 
     read from YAML cfg (path will be provided by C code),
     and host on specified addr, port
 
-4. mick: (0%)
+5. mick: (0%)
     allow user to specify path of .saves/ directory
 
