@@ -7,6 +7,7 @@ char* CDToBackerFolder();
 void Get(const char FILENAME[], const char URL[]);
 void DownloadScripts();
 void PrepareScripts();
+void RemoveScripts();
 void CheckVersions();
 void RemoveOldest();
 void DirectSaver();
