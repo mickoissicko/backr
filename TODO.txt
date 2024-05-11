@@ -1,18 +1,24 @@
 note: 1 = highest priority
 
-1. mick: (42.95%)
-    testing
+1. superharmony: (0%)
+    make an electron app
 
 2. superharmony: (0%)
-    make python server
+    make interactive website
 
 3. superharmony: (0%)
-    make interactive website
+    make python server
 
 4. superharmony: (0%) 
     read from YAML cfg (path will be provided by C code),
     and host on specified addr, port
 
 5. mick: (0%)
+    enable py server to access configs (filtered file will be generated)
+
+6. mick: (42.95%)
+    testing
+
+7. mick: (0%)
     allow user to specify path of .saves/ directory
 
