@@ -17,7 +17,7 @@ void CheckVersions()
     char Line[MAXBUF];
 
     FILE* VersionFile;
-    VersionFile = fopen("version.info", "r");
+    VersionFile = fopen("VERSION", "r");
 
     if (VersionFile == NULL)
     {
