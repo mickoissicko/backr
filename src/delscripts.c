@@ -18,6 +18,7 @@ void RemoveScripts()
     ){
         printf("error deleting\n");
         printf("maybe insufficient permissions?\n");
+        printf("or you didn't install the program yet\n");
         exit(1);
     }
 }
