@@ -13,8 +13,6 @@ void Update()
     char* Path = CDToBackerFolder();
     chdir(Path);
 
-    printf("updating...\n");
-
     RemoveScripts();
 
     printf("fetching resources...\n");
