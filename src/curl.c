@@ -3,9 +3,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-size_t WriteData(void *Ptr, size_t Siz, size_t Buf, void *Stream) 
-{
-    size_t Data = fwrite(Ptr, Siz, Buf, (FILE *)Stream);
+unsigned long WriteData(
+    void* Stream,
+    void* Ptr,
+    unsigned long Siz,
+    unsigned long Buf
+) {
+    unsigned long Data = fwrite(Ptr, Siz, Buf, (FILE *)Stream);
     return Data;
 }
 
