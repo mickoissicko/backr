@@ -13,9 +13,6 @@ void CheckVersions()
 {
     char* Path = CDToBackerFolder();
     chdir(Path);
-
-    Get("VERSION", SERVER_VERSION_FILE);
-
     char Line[MAXBUF];
 
     FILE* VersionFile;
@@ -23,8 +20,15 @@ void CheckVersions()
 
     if (VersionFile == NULL)
     {
-        perror("error opening file\n");
-        exit(1);
+        Get("VERSION", SERVER_VERSION_FILE);
+
+        VersionFile = fopen("VERSION", "r");
+
+        if (VersionFile == NULL)
+        {
+            perror("error opening file\n");
+            exit(1);
+        }
     }
 
     fgets(Line, sizeof(Line), VersionFile);
@@ -41,14 +45,22 @@ void CheckVersions()
 
     Version += 2;
 
+    FILE* LatestVer;
+    LatestVer = fopen("new.version.info", "r");
+
+    if (LatestVer != NULL)
+    {
+        remove("new.version.info");
+        fclose(LatestVer);
+    }
+
     Get("new.version.info", SERVER_VERSION_FILE);
 
-    FILE* LatestVer;
     LatestVer = fopen("new.version.info", "r");
 
     if (LatestVer == NULL)
     {
-        perror("error reading\n");
+        perror("error reading file\n");
         exit(1);
     }
 
