@@ -12,16 +12,8 @@ int Installer(char** flag)
     {
         printf("fetching home folder...\n");
 
-        char* Path = gethome();
-
-        if (
-            chdir(Path) != 0 &&
-            chdir(MIX)  != 0 &&
-            chdir(BAK)  != 0
-        )
-            printf("failure (1)\n"),
-            free(Path),
-            exit(1);
+        char* Path = CDToBackerFolder();
+        chdir(Path);
 
         printf("preparing...");
         Prepare();
