@@ -21,6 +21,9 @@ int main(int argc, char** argv)
     if (argc >= 2 && !strcmp(argv[1], "--run"))
         Clock();
 
+    if (argc >= 2 && !strcmp(argv[1], "--update"))
+        CheckVersions();
+
     return 0;
 }
 
