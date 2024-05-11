@@ -1,3 +1,5 @@
+#include "../common/common.h"
+
 #include <filesystem>
 #include <iostream>
 #include <unistd.h>
@@ -41,8 +43,17 @@ void Prepare()
 {
     cout << "initialising folders..." << '\n';
 
+    char* Path = CDToBackerFolder();
+    chdir(Path);
+
     if (!Fs::exists(".mix"))
         Fs::create_directories(".mix");
+
+    if (chdir(".mix") != 0)
+    {
+        cerr << "error changing directory" << '\n';
+        exit(1);
+    }
 
     cout << "making program folder..." << '\n';
 
