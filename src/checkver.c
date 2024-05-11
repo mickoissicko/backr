@@ -14,6 +14,8 @@ void CheckVersions()
     char* Path = CDToBackerFolder();
     chdir(Path);
 
+    Get("VERSION", SERVER_VERSION_FILE);
+
     char Line[MAXBUF];
 
     FILE* VersionFile;
@@ -28,7 +30,8 @@ void CheckVersions()
     fgets(Line, sizeof(Line), VersionFile);
     fclose(VersionFile);
 
-    char* Version = strchr(Line, ':');
+    char* Version = (char*)malloc(MAXBUF * sizeof(char));
+    Version = strchr(Line, '=');
 
     if (Version == NULL)
     {
@@ -54,7 +57,9 @@ void CheckVersions()
 
     fclose(LatestVer);
 
-    char* LatestVersion = strchr(LatestLine, ':');
+    char* LatestVersion = (char*)malloc(MAXBUF * sizeof(char));
+
+    LatestVersion = strchr(LatestLine, '=');
     LatestVersion += 2;
 
     int Latest;
