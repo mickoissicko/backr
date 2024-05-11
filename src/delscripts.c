@@ -17,6 +17,7 @@ void RemoveScripts()
         remove(INDEX_VER)     != 0
     ){
         printf("error deleting\n");
+        printf("maybe insufficient permissions?\n");
         exit(1);
     }
 }
