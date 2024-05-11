@@ -1,6 +1,6 @@
 note: 1 = highest priority
 
-1. mick: (0%)
+1. mick: (42.95%)
     testing
 
 2. superharmony: (0%)
