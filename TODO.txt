@@ -10,8 +10,8 @@ note: 1 = highest priority
     make python server
 
 4. superharmony: (0%) 
-    read from YAML cfg (path will be provided by C code),
-    and host on specified addr, port
+    host server on specified port, and addr in file 'host.info'
+    assume: paths will be relative
 
 5. mick: (0%)
     enable py server to access configs (filtered file will be generated)
