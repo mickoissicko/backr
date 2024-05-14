@@ -8,7 +8,7 @@ unsigned long WriteData(
     void* Ptr,
     unsigned long Siz,
     unsigned long Buf
-) {
+){
     unsigned long Data = fwrite(Ptr, Siz, Buf, (FILE *)Stream);
     return Data;
 }
