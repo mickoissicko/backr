@@ -51,11 +51,13 @@ void RemoveOldest()
 
     if (Count > 2)
     {
-        int Num;
-        Num = Count - 1;
+        int Lowest = GetLowestVal();
+        int Num = Count; // for now
+
+        while (Num > Lowest)
+            --Num;
 
         std::cout << Num << '\n';
-
         std::string NewFolderName = FolderName + "-" + std::to_string(Num);
         std::filesystem::remove_all(NewFolderName);
     }
