@@ -7,22 +7,23 @@ int main(int argc, char** argv)
 {
     printf("initialising...\n");
 
-    if (argv[1] != NULL)
+    if (argc >= 2 && !strcmp(argv[1], "--init"))
         Installer(argv);
-    else
-        Loader();
 
-    if (argc >= 2 && !strcmp(argv[1], "--edit"))
+    else if (argc >= 2 && !strcmp(argv[1], "--edit"))
         EditMenu();
 
-    if (argc >= 2 && !strcmp(argv[1], "--save"))
+    else if (argc >= 2 && !strcmp(argv[1], "--save"))
         MakeSave();
 
-    if (argc >= 2 && !strcmp(argv[1], "--run"))
+    else if (argc >= 2 && !strcmp(argv[1], "--run"))
         Clock();
 
-    if (argc >= 2 && !strcmp(argv[1], "--update"))
+    else if (argc >= 2 && !strcmp(argv[1], "--update"))
         CheckVersions();
+
+    else
+        Loader();
 
     return 0;
 }
