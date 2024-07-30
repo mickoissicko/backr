@@ -3,6 +3,9 @@
 #include <unistd.h>
 #include <stdio.h>
 
+// this function will soon be deprecated
+// scripts will be downloaded via program
+
 void PrepareScripts()
 {
     printf("finding folders...\n");
