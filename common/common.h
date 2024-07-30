@@ -21,6 +21,7 @@ void Update();
 void Clock();
 
 int Installer(char** flag);
+int GetLowestVal();
 int GetStdTime();
 int GetDelTime();
 int GetEndTime();
