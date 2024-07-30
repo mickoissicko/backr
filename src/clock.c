@@ -19,20 +19,26 @@ void Clock()
     }
 
     int Current = 0;
+
     int End = GetEndTime();
+    int Std = GetStdTime();
+    int Del = GetDelTime();
+
+    if (Del == 0)
+        printf("deletion is switched off\n");
 
     while (End != 0)
     {
-        int Std = GetStdTime();
-        int Del = GetDelTime();
-
         chdir(Cwd);
+        printf("cd cwd\n");
 
         if (Current % Std == 0)
             DirectSaver();
 
-        if (Current % Del == 0)
+        if (Del != 0 && Current % Del == 0)
+        {
             RemoveOldest();
+        }
 
         chdir(Cwd);
 
