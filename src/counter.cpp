@@ -42,6 +42,7 @@ void Counter(std::string WorkingPath)
         Manifest.close();
     }
 
+    Manifest.close();
     chdir("..");
 }
 
