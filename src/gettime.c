@@ -101,7 +101,7 @@ int GetDelTime()
     fgets(Ln, BUF, Cfg); // read line 4
 
     if (!strcmp(Ln, "DEL_TIME: Off"))
-        exit(0);
+        return 0;
 
     int Interval;
     char* Delim = "DEL_TIME: ";
