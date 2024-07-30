@@ -3,14 +3,15 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-unsigned long WriteData(
-    void* Stream,
-    void* Ptr,
-    unsigned long Siz,
-    unsigned long Buf
+// dont change
+size_t WriteData(
+    void* ptr,
+    size_t size,
+    size_t nmemb,
+    void* stream
 ){
-    unsigned long Data = fwrite(Ptr, Siz, Buf, (FILE *)Stream);
-    return Data;
+    size_t written = fwrite(ptr, size, nmemb, (FILE*)stream);
+    return written;
 }
 
 void Get(const char FILENAME[], const char URL[])
