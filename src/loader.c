@@ -15,11 +15,15 @@ void Loader()
     char Ui[MAX_LEN];
 
     printf("well... type smth here so I can take you there:\n");
-    printf("availble commands:\nedit\ninit\nsave\n");
+    printf("availble commands:\nedit\ninit\nsave\nupdate\nrun\nexit\n");
 
     while (
-        strcasecmp(Ui, "edit") &&
-        strcasecmp(Ui, "init")
+        strcasecmp(Ui, "edit")   &&
+        strcasecmp(Ui, "init")   &&
+        strcasecmp(Ui, "save")   &&
+        strcasecmp(Ui, "update") &&
+        strcasecmp(Ui, "run")    &&
+        strcasecmp(Ui, "exit")
     ){
         printf("> "),
         scanf("%s", Ui);
@@ -30,6 +34,15 @@ void Loader()
 
     else if (!strcasecmp(Ui, "save"))
         MakeSave();
+
+    else if (!strcasecmp(Ui, "update"))
+        CheckVersions();
+
+    else if (!strcasecmp(Ui, "run"))
+        Clock();
+
+    else if (!strcasecmp(Ui, "exit"))
+        exit(0);
 
     else if (!strcasecmp(Ui, "init"))
     {
