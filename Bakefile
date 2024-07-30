@@ -2,7 +2,7 @@
 
 out: [../bin/out];
 run: [cd src/ && g++ -std=c++17];
-src: [delscripts.c update.c download.c checkver.c curl.c remove.cpp backup.cpp gettime.c clock.c rename.cpp counter.cpp serverinit.c tools/editor.c install.c loader.c main.c prepare.cpp utils/cd.c utils/getpy.c utils/mkscripts.c];
+src: [delscripts.c update.c download.c checkver.c curl.c remove.cpp backup.cpp getlowest.cpp gettime.c clock.c rename.cpp counter.cpp serverinit.c tools/editor.c install.c loader.c main.c prepare.cpp utils/cd.c utils/getpy.c utils/mkscripts.c];
 
 !main{
     >[run] -o [out] [src] -lcurl;
