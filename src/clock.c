@@ -30,19 +30,17 @@ void Clock()
     while (End != 0)
     {
         chdir(Cwd);
-        printf("cd cwd\n");
 
         if (Current % Std == 0)
             DirectSaver();
 
         if (Del != 0 && Current % Del == 0)
-        {
             RemoveOldest();
-        }
 
         chdir(Cwd);
 
         Hlt(1);
+
         End--;
         Current++;
     }
