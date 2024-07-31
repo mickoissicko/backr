@@ -104,7 +104,7 @@ void EditMenu()
     }
 
     if (c_Ui == 'y' || c_Ui == 'Y')
-        strcpy(Time, "600");
+        strcpy(Time, "180");
 
     else
     {
@@ -172,6 +172,8 @@ void EditMenu()
     fprintf(Cfg, "TIME: %s\n", Time);
     fprintf(Cfg, "DEL_TIME: %s\n", DeleteTime);
     fprintf(Cfg, "STOP_AFTER: %s\n", EndTime);
+    fprintf(Cfg, "# Instead of 'Off', it is permissible to use '0'.\n");
+    // for user
 
     fclose(Cfg);
 }
