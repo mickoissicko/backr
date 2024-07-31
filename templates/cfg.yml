@@ -1,6 +1,7 @@
 ADDR: 127.0.0.1
 PORT: 80
-TIME: 600
+TIME: 180
 DEL_TIME: Off
 STOP_AFTER: Off
+# Instead of 'Off', it is permissible to use '0'.
 
