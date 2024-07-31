@@ -16,9 +16,6 @@ note: 1 = highest priority
 5. mick: (0%)
     enable py server to access configs (filtered file will be generated)
 
-6. mick: (63.20%)
-    testing
-
-7. mick: (0%)
+6. mick: (0%)
     allow user to specify path of .saves/ directory
 
