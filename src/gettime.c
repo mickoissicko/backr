@@ -66,6 +66,9 @@ int GetEndTime()
     fgets(Ln, BUF, Cfg); // read line 4
     fgets(Ln, BUF, Cfg); // read line 5
 
+    if (!strcmp(Ln, "STOP_AFTER: Off"))
+        return 0;
+
     char* Delim = "STOP_AFTER: ";
 
     if (strstr(Ln, Delim) == Ln)
