@@ -18,14 +18,34 @@ void Clock()
         exit(1);
     }
 
-    int Current = 0;
-
     int End = GetEndTime();
     int Std = GetStdTime();
     int Del = GetDelTime();
+    int Current = 0;
+
+    if (End == 0)
+    {
+        printf("(i) stopping is switched off\n");
+
+        while (1)
+        {
+            chdir(Cwd);
+
+            if (Current % Std == 0)
+                DirectSaver();
+
+            if (Del != 0 && Current % Del == 0)
+                RemoveOldest();
+
+            chdir(Cwd);
+            Hlt(1);
+
+            Current++;
+        }
+    }
 
     if (Del == 0)
-        printf("deletion is switched off\n");
+        printf("(i) deletion is switched off\n");
 
     while (End != 0)
     {
